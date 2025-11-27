@@ -1,0 +1,52 @@
+name: crop_disease_detector
+description: AI-Driven Solutions for Identifying and Mapping Crop Diseases - Flutter Frontend
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  go_router: ^12.1.3
+  provider: ^6.1.1
+  google_fonts: ^6.1.0
+  flutter_svg: ^2.0.9
+  image_picker: ^1.0.4
+  shared_preferences: ^2.5.3
+  http: ^1.1.0
+  geolocator: ^10.1.0
+  geocoding: ^2.1.1
+  pdf: ^3.11.3
+  printing: ^5.14.2
+  intl: ^0.20.2
+  firebase_core: ^4.2.1
+  firebase_auth: ^6.1.2
+  cloud_firestore: ^6.1.0
+  url_launcher: ^6.3.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
+
+  # fonts:
+  # - family: Poppins
+  #   fonts:
+  #     - asset: assets/fonts/Poppins-Regular.ttf
+  #     - asset: assets/fonts/Poppins-Medium.ttf
+  #       weight: 500
+  #     - asset: assets/fonts/Poppins-SemiBold.ttf
+  #       weight: 600
+  #     - asset: assets/fonts/Poppins-Bold.ttf
+  #       weight: 700

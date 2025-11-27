@@ -1,0 +1,36 @@
+// 1. Plugins Block
+plugins {
+    // Keep the application plugin with the version that matches your environment
+    id("com.android.application") version "8.11.1" apply false
+    
+    // REMOVED: id("com.android.library") ... 
+    // Removing this line fixes the "unknown version" conflict because the artifact is already loaded by the application plugin.
+
+    // UPDATED: Changed Kotlin version to 2.2.20 to match your classpath
+    id("org.jetbrains.kotlin.android") version "2.2.20" apply false
+    
+    // Firebase Plugin
+    id("com.google.gms.google-services") version "4.4.4" apply false
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+val newBuildDir: Directory = rootProject.layout.buildDirectory.dir("../../build").get()
+rootProject.layout.buildDirectory.value(newBuildDir)
+
+subprojects {
+    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
+    project.layout.buildDirectory.value(newSubprojectBuildDir)
+}
+subprojects {
+    project.evaluationDependsOn(":app")
+}
+
+tasks.register<Delete>("clean") {
+    delete(rootProject.layout.buildDirectory)
+}
